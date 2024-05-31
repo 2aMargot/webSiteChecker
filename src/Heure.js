@@ -4,7 +4,6 @@ import { Button, Text, View } from "react-native"
 
 const Heure =() => {
 
-    // let date = new Date();
     const [time, setTime]=useState(new Date());
 
     function update(){
@@ -17,7 +16,7 @@ const Heure =() => {
                 {time.toLocaleTimeString()}
             </Text>
             <Button
-            title="Change Time"
+            title="UpDate Time"
             onPress={update}
             />
         </View>
