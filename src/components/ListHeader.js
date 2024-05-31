@@ -1,18 +1,28 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView} from 'react-native';
+import { useState } from "react";
+import { View, Text, StyleSheet, Button} from 'react-native';
+import Heure from './Heure';
 
 const ListHeader = () => {
 
-const data = Array.from({ length: 20 }, (_, i) => `Item ${i + 1}`);
+    const [time, setTime]=useState(new Date());
+
+    function update(){
+        setTime(new Date());
+    }
+
 return(
-<ScrollView style={styles.scrollView}>
-    <Text style={styles.title}>Website Checker</Text>
-    {data.map((item, index) => (
-    <View key={index} style={styles.block}>
-        <Text>{item}</Text>
+    <View>
+        <Text style={styles.title}>Website Checker</Text>
+        <View style={styles.container}>
+            <Heure time={time} />
+            <Button 
+                title="UpDate Time"
+                onPress={update}
+                color="#841584"
+            />
+        </View>
     </View>
-    ))}
-</ScrollView>
 )
 
 }
@@ -22,18 +32,16 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 16,
+    color:'#340834',
+    textAlign: 'center',
     },
-    scrollView: {
-        flex: 2,
-        marginBottom: 16,
-    },
-    block: {
+    container: {
         flex: 1,
-        padding: 16,
-        margin: 4,
-        borderWidth: 1,
-        borderColor: '#000',
+        justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: '#E6D0E6',
+        padding: 30,
+        borderRadius: 5,
     },
 });
 
