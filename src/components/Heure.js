@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { Button, StyleSheet, Text, View } from "react-native"
+import { StyleSheet, Text, View } from "react-native"
 
 
 const Heure =({ time }) => {
@@ -19,6 +18,14 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         color: '#340834',
         textAlign: 'center'
+    },
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#E6D0E6',
+        padding: 30,
+        borderRadius: 5,
     },
 })
 

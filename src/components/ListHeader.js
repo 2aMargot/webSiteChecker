@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { View, Text, StyleSheet, Button} from 'react-native';
 import Heure from './Heure';
 
@@ -11,17 +11,16 @@ const ListHeader = () => {
         setTime(new Date());
     }
 
+    useEffect(() => {
+        const interval = setInterval(update, 1000); 
+        return () => clearInterval(interval); 
+    }, []);
+
+
 return(
     <View>
         <Text style={styles.title}>Website Checker</Text>
-        <View style={styles.container}>
-            <Heure time={time} />
-            <Button 
-                title="UpDate Time"
-                onPress={update}
-                color="#841584"
-            />
-        </View>
+        <Heure time={time} />
     </View>
 )
 
@@ -35,14 +34,7 @@ const styles = StyleSheet.create({
     color:'#340834',
     textAlign: 'center',
     },
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#E6D0E6',
-        padding: 30,
-        borderRadius: 5,
-    },
+    
 });
 
 export default ListHeader;
