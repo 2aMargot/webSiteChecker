@@ -2,25 +2,17 @@ import React from 'react';
 import {StyleSheet, SafeAreaView, ScrollView, View, Text} from 'react-native';
 import ListHeader from './src/components/ListHeader';
 import ListFooter from './src/components/ListFooter';
+import ListItems from './src/components/ListItem';
 
 const App = () => {
 
-  const data = Array.from({ length: 20 }, (_, i) => `Item ${i + 1}`);
-
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.scrollView}>
+
       <ListHeader />
-
-      {data.map((item, index) => (
-      <View key={index} style={styles.block}>
-        <Text style={styles.item}>{item}</Text>
-      </View>
-      ))}
-
+      <ListItems />
       <ListFooter />
 
-      </ScrollView>
       
       
     </SafeAreaView>
@@ -47,7 +39,7 @@ const styles = StyleSheet.create({
     borderColor: '#340834',
     borderRadius:5,
     alignItems: 'center',
-},
+}
 });
 
 export default App;
